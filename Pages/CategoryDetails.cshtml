@@ -1,0 +1,144 @@
+﻿@page
+@model Blog_1.Pages.CategoryDetailsModel
+@{
+}
+@{
+    var gamesCount = Model.CategoryNumber.Count(b => b.Category == "Games");
+    var websiteCount = Model.CategoryNumber.Count(b => b.Category == ".NET");
+
+    var gamesCategory = Model.CategoryNumber.Find(b => b.Category == "Games");
+    var webCategory = Model.CategoryNumber.Find(b => b.Category == ".NET");
+}
+<section class="section wb">
+    <div class="container">
+        <div class="row">
+
+            <div class="page-title wb">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                            @if (Model.Blog.Any())
+                            {
+                                <h2><i class="fa fa-leaf bg-green"></i> Category: @Model.Blog.First().Category </h2>
+                            }
+                        </div><!-- end col -->
+                        <div class="col-lg-4 col-md-4 col-sm-12 hidden-xs-down hidden-sm-down">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/Index">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Blog</a></li>
+                                @if (Model.Blog.Any())
+                                {
+                                    <li class="breadcrumb-item active">@Model.Blog.First().Category</li>
+                                }
+                            </ol>
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                </div><!-- end container -->
+            </div><!-- end page-title -->
+
+            <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                <div class="page-wrapper">
+                    <div class="blog-list clearfix">
+
+                        @foreach (var blog in Model.Blog)
+                        {
+                            <div class="blog-box row">
+                                <div class="col-md-4">
+                                    <div class="post-media">
+                                        <a href="#" title="">
+                                            <img src="~/image/@blog.ImageFileName" alt="" class="img-fluid">
+                                            <div class="hovereffect"></div>
+                                        </a>
+                                    </div><!-- end media -->
+                                </div><!-- end col -->
+
+                                <div class="blog-meta big-meta col-md-8">
+                                    <span class="bg-aqua"><a href="#" title="">@blog.Category</a></span>
+                                    <h4><a href="/BlogDetails?id=@blog.Id" title="">@blog.Name</a></h4>
+                                    <p>@blog.Description.Substring(0, Math.Min(@blog.Description.Length, 50))...</p>
+
+                                    <small><a href="/BlogDetails?id=@blog.Id" title="">@blog.CreatedAt.ToString("dd MMM, yyyy")</a></small>
+                                    <small><a href="/BlogDetails?id=@blog.Id" title="">by @blog.Author</a></small>
+                                </div><!-- end meta -->
+                            </div>
+
+                            <!-- end blog-box -->
+
+                            <hr class="invis">
+                        }
+
+                    </div><!-- end blog-list -->
+                </div><!-- end page-wrapper -->
+                <!-- Your existing code -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-start">
+                                @for (int i = 1; i <= Model.TotalPages; i++)
+                                {
+                                    <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                                        <a class="page-link" href="?PageNumber=@i">@i</a>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                    </div><!-- end col -->
+                </div><!-- end row -->
+
+
+            </div><!-- end col -->
+
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                <div class="sidebar">
+                    <div class="widget">
+                        <h2 class="widget-title">Search</h2>
+                        <form class="form-inline search-form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search on the site">
+                            </div>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div><!-- end widget -->
+
+                    <div class="widget">
+                        <h2 class="widget-title">Older Posts</h2>
+                        <div class="blog-list-widget">
+                            <div class="list-group">
+                                @foreach (var blog in Model.OldestBlogs)
+                                {
+                                    <a href="/BlogDetails?id=@blog.Id" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <div class="w-100 justify-content-between">
+                                            <img src="~/image/@blog.ImageFileName" alt="" class="img-fluid float-left">
+                                            <h5 class="mb-1">@blog.Name</h5>
+                                            <small>@blog.CreatedAt.ToString("dd MMM, yyyy")</small>
+                                        </div>
+                                    </a>
+                                }
+                            </div>
+
+                        </div><!-- end blog-list -->
+                    </div><!-- end widget -->
+
+                    <div class="widget">
+                        <h2 class="widget-title">Popular Categories</h2>
+                        <div class="link-widget">
+                            <ul>
+                                @if (gamesCategory != null)
+                                {
+                                    <li><a href="/CategoryDetails?Category=@gamesCategory.Category">Games <span>(@gamesCount)</span></a></li>
+                                }
+                                @if (webCategory != null)
+                                {
+                                    <li><a href="/CategoryDetails?Category=@webCategory.Category">Website <span>(@websiteCount)</span></a></li>
+                                }
+                            </ul>
+                        </div><!-- end link-widget -->
+                    </div><!-- end widget -->
+                </div><!-- end sidebar -->
+            </div><!-- end col -->
+
+
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section>

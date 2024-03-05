@@ -1,0 +1,40 @@
+﻿@page
+@model Blog_1.Pages.BlogDetailsModel
+@{
+}
+<div class="container">
+
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+            <div class="page-wrapper">
+                <div class="blog-title-area">
+                <span class="color-green"><a href="/CategoryDetails?Category=@Model.Blog.Category" title="">@Model.Blog.Category</a></span>
+
+                    <h3>@Model.Blog.Name</h3>
+
+                    <div class="blog-meta big-meta">
+                        <small><a href="#" title="">@Model.Blog.CreatedAt.ToString("dd MMM, yyyy")</a></small>
+                        <small><a href="#" title="">@Model.Blog.Author</a></small>
+                    </div><!-- end meta -->
+
+                    <div class="post-sharing">
+                        <ul class="list-inline">
+                            <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
+                            <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </div><!-- end post-sharing -->
+                </div><!-- end title -->
+
+                <div class="single-post-media">
+                    <img src="~/image/@Model.Blog.ImageFileName" alt="" class="img-fluid">
+                </div><!-- end media -->
+
+                <div class="blog-content">
+                    <div class="pp">
+                        <p>@Html.Raw(Model.Blog.Description)</p>
+                    </div><!-- end pp -->
+                </div><!-- end content -->
+            </div>
+        </div>
+
+
+</div>

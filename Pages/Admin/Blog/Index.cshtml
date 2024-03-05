@@ -1,0 +1,46 @@
+﻿@page
+@model Blog_1.Pages.Admin.Blog.IndexModel
+@{
+}
+<hr class="invis">
+    <div class="row mb-5">
+        <div class="col">
+            <a class='btn btn-theme-outline' href='/Admin/Blog/Create'> New Project</a>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Image</th>
+                    <th>Author</th>
+                    <th>Created At</th>
+                </tr>
+            </thead>
+            @foreach (var blog in Model.Blog)
+            {
+                <tbody>
+                    <tr>
+                        <td>@blog.Id</td>
+                        <td>@blog.Name</td>
+                        <td>@blog.Description</td>
+                        <td>@blog.Category</td>
+                        <td><img src="/image/@blog.ImageFileName" width="100"></td>
+                        <td>@blog.Author</td>
+                        <td>@blog.CreatedAt.ToString("MM/dd/yyyy")</td>
+
+                        <td style="white-space:nowrap">
+                            <a class="btn btn-primary btn-sm" href="/Admin/Blog/Edit?id=@blog.Id">Edit</a>
+                            <a class="btn btn-danger btn-sm" href="/Admin/Blog/Delete?id=@blog.Id">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
