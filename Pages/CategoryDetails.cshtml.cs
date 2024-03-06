@@ -15,6 +15,7 @@ namespace Blog_1.Pages
             if (!string.IsNullOrEmpty(Category))
             {
                 query = query.Where(p => p.Category == Category);
+                SearchTerm = Category;
             }
 
             await LoadCommonDataAsync(query, pageSize);

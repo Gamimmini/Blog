@@ -3,6 +3,15 @@
 @{
 }
 <hr class="invis">
+
+<form  class="my-custom-form">
+    <label for="searchTerm" class="sr-only">Search by name</label>
+    <input type="text" id="searchTerm" name="searchTerm" placeholder="Search by name" value="@Model.SearchTerm" class="form-control">
+    <button type="submit" class="btn btn-primary">
+        <i class="fa fa-search"></i> Search
+    </button>
+</form>
+<hr class="invis">
     <div class="row mb-5">
         <div class="col">
             <a class='btn btn-theme-outline' href='/Admin/Blog/Create'> New Project</a>
@@ -44,3 +53,15 @@
             }
         </table>
     </div>
+<div class="pagination">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                    <a class="page-link" href="/Admin/Blog/Index?pageNumber=@i">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>

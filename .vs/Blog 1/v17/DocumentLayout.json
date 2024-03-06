@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "F:\\ASPNET\\Blog 1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7A81EDD8-AB52-465D-BD60-9DA0299B31EE}|Blog 1.csproj|f:\\aspnet\\blog 1\\pages\\admin\\blog\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7A81EDD8-AB52-465D-BD60-9DA0299B31EE}|Blog 1.csproj|solutionrelative:pages\\admin\\blog\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A81EDD8-AB52-465D-BD60-9DA0299B31EE}|Blog 1.csproj|f:\\aspnet\\blog 1\\pages\\admin\\blog\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7A81EDD8-AB52-465D-BD60-9DA0299B31EE}|Blog 1.csproj|solutionrelative:pages\\admin\\blog\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A81EDD8-AB52-465D-BD60-9DA0299B31EE}|Blog 1.csproj|f:\\aspnet\\blog 1\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7A81EDD8-AB52-465D-BD60-9DA0299B31EE}|Blog 1.csproj|solutionrelative:pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7A81EDD8-AB52-465D-BD60-9DA0299B31EE}|Blog 1.csproj|f:\\aspnet\\blog 1\\pages\\categorydetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7A81EDD8-AB52-465D-BD60-9DA0299B31EE}|Blog 1.csproj|solutionrelative:pages\\categorydetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7A81EDD8-AB52-465D-BD60-9DA0299B31EE}|Blog 1.csproj|f:\\aspnet\\blog 1\\pages\\basepagemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7A81EDD8-AB52-465D-BD60-9DA0299B31EE}|Blog 1.csproj|solutionrelative:pages\\basepagemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A81EDD8-AB52-465D-BD60-9DA0299B31EE}|Blog 1.csproj|f:\\aspnet\\blog 1\\pages\\categorydetails.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A81EDD8-AB52-465D-BD60-9DA0299B31EE}|Blog 1.csproj|solutionrelative:pages\\categorydetails.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A81EDD8-AB52-465D-BD60-9DA0299B31EE}|Blog 1.csproj|f:\\aspnet\\blog 1\\pages\\admin\\blog\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A81EDD8-AB52-465D-BD60-9DA0299B31EE}|Blog 1.csproj|solutionrelative:pages\\admin\\blog\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7A81EDD8-AB52-465D-BD60-9DA0299B31EE}|Blog 1.csproj|f:\\aspnet\\blog 1\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,8 +30,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "F:\\ASPNET\\Blog 1\\Pages\\Admin\\Blog\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Admin\\Blog\\Index.cshtml.cs",
+              "ToolTip": "F:\\ASPNET\\Blog 1\\Pages\\Admin\\Blog\\Index.cshtml.cs",
+              "RelativeToolTip": "Pages\\Admin\\Blog\\Index.cshtml.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAkwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-06T15:29:30.621Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 4,
@@ -40,58 +53,49 @@
               "RelativeDocumentMoniker": "Pages\\Index.cshtml.cs",
               "ToolTip": "F:\\ASPNET\\Blog 1\\Pages\\Index.cshtml.cs",
               "RelativeToolTip": "Pages\\Index.cshtml.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAmwB8AAAABAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T09:45:41.889Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "F:\\ASPNET\\Blog 1\\Pages\\Index.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Index.cshtml",
-              "ToolTip": "F:\\ASPNET\\Blog 1\\Pages\\Index.cshtml",
-              "RelativeToolTip": "Pages\\Index.cshtml",
-              "ViewState": "AQIAAFwAAAAAAAAAAAAAAHsAAABQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-06T09:29:37.265Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BasePageModel.cs",
-              "DocumentMoniker": "F:\\ASPNET\\Blog 1\\Pages\\BasePageModel.cs",
-              "RelativeDocumentMoniker": "Pages\\BasePageModel.cs",
-              "ToolTip": "F:\\ASPNET\\Blog 1\\Pages\\BasePageModel.cs",
-              "RelativeToolTip": "Pages\\BasePageModel.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAYwB0AAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T09:43:25.153Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "F:\\ASPNET\\Blog 1\\Pages\\Admin\\Blog\\Index.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Admin\\Blog\\Index.cshtml.cs",
-              "ToolTip": "F:\\ASPNET\\Blog 1\\Pages\\Admin\\Blog\\Index.cshtml.cs",
-              "RelativeToolTip": "Pages\\Admin\\Blog\\Index.cshtml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA6AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T09:43:48.121Z",
+              "WhenOpened": "2024-03-06T15:28:14.71Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "F:\\ASPNET\\Blog 1\\Pages\\Admin\\Blog\\Index.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Admin\\Blog\\Index.cshtml",
-              "ToolTip": "F:\\ASPNET\\Blog 1\\Pages\\Admin\\Blog\\Index.cshtml",
-              "RelativeToolTip": "Pages\\Admin\\Blog\\Index.cshtml",
-              "ViewState": "AQIAACIAAAAAAAAAAAAAAC4AAAAAAAAA",
+              "Title": "BasePageModel.cs",
+              "DocumentMoniker": "F:\\ASPNET\\Blog 1\\Pages\\BasePageModel.cs",
+              "RelativeDocumentMoniker": "Pages\\BasePageModel.cs",
+              "ToolTip": "F:\\ASPNET\\Blog 1\\Pages\\BasePageModel.cs",
+              "RelativeToolTip": "Pages\\BasePageModel.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAswBkAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-06T15:28:28.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CategoryDetails.cshtml.cs",
+              "DocumentMoniker": "F:\\ASPNET\\Blog 1\\Pages\\CategoryDetails.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\CategoryDetails.cshtml.cs",
+              "ToolTip": "F:\\ASPNET\\Blog 1\\Pages\\CategoryDetails.cshtml.cs",
+              "RelativeToolTip": "Pages\\CategoryDetails.cshtml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-06T15:26:44.648Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CategoryDetails.cshtml",
+              "DocumentMoniker": "F:\\ASPNET\\Blog 1\\Pages\\CategoryDetails.cshtml",
+              "RelativeDocumentMoniker": "Pages\\CategoryDetails.cshtml",
+              "ToolTip": "F:\\ASPNET\\Blog 1\\Pages\\CategoryDetails.cshtml",
+              "RelativeToolTip": "Pages\\CategoryDetails.cshtml",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAAAG8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-06T09:29:13.371Z"
+              "WhenOpened": "2024-03-06T15:26:38.837Z",
+              "EditorCaption": ""
             }
           ]
         }

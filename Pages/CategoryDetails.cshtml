@@ -102,13 +102,14 @@
                                 @for (int i = 1; i <= Model.TotalPages; i++)
                                 {
                                     <li class="page-item @(i == Model.PageNumber ? "active" : "")">
-                                        <a class="page-link" href="?PageNumber=@i">@i</a>
+                                        <a class="page-link" href="?PageNumber=@i&Category=@Model.SearchTerm">@i</a>
                                     </li>
                                 }
                             </ul>
                         </nav>
                     </div><!-- end col -->
                 </div><!-- end row -->
+
 
 
             </div><!-- end col -->
