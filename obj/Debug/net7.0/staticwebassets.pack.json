@@ -5,6 +5,18 @@
       "PackagePath": "staticwebassets\\Blog 1.bundle.scp.css"
     },
     {
+      "Id": "F:\\ASPNET\\Blog 1\\wwwroot\\advertising\\Ads1.jpg",
+      "PackagePath": "staticwebassets\\advertising\\Ads1.jpg"
+    },
+    {
+      "Id": "F:\\ASPNET\\Blog 1\\wwwroot\\advertising\\Ads2.jpg",
+      "PackagePath": "staticwebassets\\advertising\\Ads2.jpg"
+    },
+    {
+      "Id": "F:\\ASPNET\\Blog 1\\wwwroot\\advertising\\Ads3.jpg",
+      "PackagePath": "staticwebassets\\advertising\\Ads3.jpg"
+    },
+    {
       "Id": "F:\\ASPNET\\Blog 1\\wwwroot\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.css"
     },
@@ -61,24 +73,32 @@
       "PackagePath": "staticwebassets\\image\\1.jpg"
     },
     {
-      "Id": "F:\\ASPNET\\Blog 1\\wwwroot\\image\\20240305110030467.png",
-      "PackagePath": "staticwebassets\\image\\20240305110030467.png"
+      "Id": "F:\\ASPNET\\Blog 1\\wwwroot\\image\\20240306153139533.PNG",
+      "PackagePath": "staticwebassets\\image\\20240306153139533.PNG"
     },
     {
-      "Id": "F:\\ASPNET\\Blog 1\\wwwroot\\image\\20240305110040620.PNG",
-      "PackagePath": "staticwebassets\\image\\20240305110040620.PNG"
+      "Id": "F:\\ASPNET\\Blog 1\\wwwroot\\image\\20240306153430006.jpg",
+      "PackagePath": "staticwebassets\\image\\20240306153430006.jpg"
     },
     {
-      "Id": "F:\\ASPNET\\Blog 1\\wwwroot\\image\\20240305110049523.PNG",
-      "PackagePath": "staticwebassets\\image\\20240305110049523.PNG"
+      "Id": "F:\\ASPNET\\Blog 1\\wwwroot\\image\\20240306153912115.jpg",
+      "PackagePath": "staticwebassets\\image\\20240306153912115.jpg"
     },
     {
-      "Id": "F:\\ASPNET\\Blog 1\\wwwroot\\image\\20240305110110103.PNG",
-      "PackagePath": "staticwebassets\\image\\20240305110110103.PNG"
+      "Id": "F:\\ASPNET\\Blog 1\\wwwroot\\image\\20240306154146270.jpg",
+      "PackagePath": "staticwebassets\\image\\20240306154146270.jpg"
     },
     {
-      "Id": "F:\\ASPNET\\Blog 1\\wwwroot\\image\\20240305110123783.PNG",
-      "PackagePath": "staticwebassets\\image\\20240305110123783.PNG"
+      "Id": "F:\\ASPNET\\Blog 1\\wwwroot\\image\\20240306154455152.jpg",
+      "PackagePath": "staticwebassets\\image\\20240306154455152.jpg"
+    },
+    {
+      "Id": "F:\\ASPNET\\Blog 1\\wwwroot\\image\\20240306155447095.jpg",
+      "PackagePath": "staticwebassets\\image\\20240306155447095.jpg"
+    },
+    {
+      "Id": "F:\\ASPNET\\Blog 1\\wwwroot\\image\\20240306155725711.jpg",
+      "PackagePath": "staticwebassets\\image\\20240306155725711.jpg"
     },
     {
       "Id": "F:\\ASPNET\\Blog 1\\wwwroot\\images\\ads-bg.png",

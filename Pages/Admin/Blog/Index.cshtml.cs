@@ -1,5 +1,6 @@
-using Blog_1.Models;
+﻿using Blog_1.Models;
 using Blog_1.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Blog_1.Pages.Admin.Blog
@@ -9,6 +10,7 @@ namespace Blog_1.Pages.Admin.Blog
 		private readonly ApplicationDbContext context;
 
 		public List<BLog> Blog { get; set; } = new List<BLog>();
+
         public IndexModel(ApplicationDbContext context)
 		{
 			this.context = context;

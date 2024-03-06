@@ -2,39 +2,110 @@
 @model Blog_1.Pages.BlogDetailsModel
 @{
 }
+<script>
+    function shareOnFacebook() {
+        var shareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(window.location.href);
+        window.open(shareUrl, "_blank", "width=600,height=600");
+        //window.location.href = shareUrl;
+    }
+</script>
+<section class="section wb">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                <div class="page-wrapper">
+                    <div class="blog-title-area">
+                        <span class="color-green"><a href="/CategoryDetails?Category=@Model.Blog.Category" title="">@Model.Blog.Category</a></span>
+
+                        <h3>@Model.Blog.Name</h3>
+
+                        <div class="blog-meta big-meta">
+                            <small><a href="#" title="">@Model.Blog.CreatedAt.ToString("dd MMM, yyyy")</a></small>
+                            <small><a href="#" title="">@Model.Blog.Author</a></small>
+                        </div><!-- end meta -->
+
+                        <div class="post-sharing">
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="#" class="fb-button btn btn-primary" onclick="shareOnFacebook()">
+                                        <i class="fa fa-facebook"></i>
+                                        <span class="down-mobile">Share on Facebook</span>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div><!-- end post-sharing -->
+                    </div><!-- end title -->
+
+                    <div class="single-post-media">
+                        <img src="~/image/@Model.Blog.ImageFileName" alt="" class="img-fluid" style="width: 800px; height: 350px;">
+                    </div><!-- end media -->
+
+                    <div class="blog-content">
+                        <div class="pp">
+                            <p>@Html.Raw(Model.Blog.Description)</p>
+                        </div><!-- end pp -->
+                    </div><!-- end content -->
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                <div class="sidebar">
+
+                    @{
+                        string advertisingPath = "wwwroot/advertising/";
+
+                        string[] imageFiles = Directory.GetFiles(advertisingPath, "*.jpg");
+
+                        if (imageFiles.Length > 0)
+                        {
+                            Random random = new Random();
+                            string randomImagePath = imageFiles[random.Next(imageFiles.Length)];
+
+                            string absoluteImagePath = $"{Request.Scheme}://{Request.Host}/{randomImagePath.Substring("wwwroot".Length)}";
+
+                            <div class="widget">
+                                <h2 class="widget-title">Advertising</h2>
+                                <div class="banner-spot clearfix">
+                                    <div class="banner-img">
+                                        <img src="@absoluteImagePath" alt="" class="img-fluid" style="width: 100%; height: 150px;">
+                                    </div><!-- end banner-img -->
+                                </div><!-- end banner -->
+                            </div>
+                        }
+                    }
+
+                    <div class="widget">
+                        <h2 class="widget-title">You may also like</h2>
+
+                        <div class="blog-list-widget">
+                            <div class="list-group">
+                                @foreach (var relatedBlog in Model.RelatedBlogs)
+                                {
+                                    <a href="@Url.Page("BlogDetails", new { id = relatedBlog.Id })" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <div class="w-100 justify-content-between">
+                                            <img src="~/image/@relatedBlog.ImageFileName" alt="" class="img-fluid float-left" style="width: 80%; height: 35px;">
+                                            <h5 class="mb-1">@relatedBlog.Name</h5>
+                                            <small>@relatedBlog.CreatedAt.ToString("dd MMM, yyyy")</small>
+                                        </div>
+                                    </a>
+                                }
+                            </div>
+                        </div>
+
+
+                    </div><!-- end widget -->
+
+                </div><!-- end sidebar -->
+            </div><!-- end col -->
+
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section>
+
 <div class="container">
 
-        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-            <div class="page-wrapper">
-                <div class="blog-title-area">
-                <span class="color-green"><a href="/CategoryDetails?Category=@Model.Blog.Category" title="">@Model.Blog.Category</a></span>
-
-                    <h3>@Model.Blog.Name</h3>
-
-                    <div class="blog-meta big-meta">
-                        <small><a href="#" title="">@Model.Blog.CreatedAt.ToString("dd MMM, yyyy")</a></small>
-                        <small><a href="#" title="">@Model.Blog.Author</a></small>
-                    </div><!-- end meta -->
-
-                    <div class="post-sharing">
-                        <ul class="list-inline">
-                            <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
-                            <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
-                        </ul>
-                    </div><!-- end post-sharing -->
-                </div><!-- end title -->
-
-                <div class="single-post-media">
-                    <img src="~/image/@Model.Blog.ImageFileName" alt="" class="img-fluid">
-                </div><!-- end media -->
-
-                <div class="blog-content">
-                    <div class="pp">
-                        <p>@Html.Raw(Model.Blog.Description)</p>
-                    </div><!-- end pp -->
-                </div><!-- end content -->
-            </div>
-        </div>
+        
 
 
 </div>

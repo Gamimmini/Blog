@@ -1,14 +1,38 @@
 ﻿@page
 @model Blog_1.Pages.CategoryDetailsModel
-@{
-}
-@{
-    var gamesCount = Model.CategoryNumber.Count(b => b.Category == "Games");
-    var websiteCount = Model.CategoryNumber.Count(b => b.Category == ".NET");
 
-    var gamesCategory = Model.CategoryNumber.Find(b => b.Category == "Games");
-    var webCategory = Model.CategoryNumber.Find(b => b.Category == ".NET");
+@{
 }
+@{
+    var uniqueCategories = new HashSet<string>();
+}
+<header class="header">
+    <div class="container">
+        <nav class="navbar navbar-inverse navbar-toggleable-md">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Forest Timemenu" aria-controls="Forest Timemenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-md-center" id="Forest Timemenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link color-green-hover" href="/Index">Home</a>
+                    </li>
+             
+                        @foreach (var blog in Model.CategoryNumber)
+                        {
+                            var category = Model.CategoryNumber.Find(b => b.Category == blog.Category);
+
+                            if (category != null && uniqueCategories.Add(blog.Category))
+                            {
+                                <a class="nav-link color-green-hover" href="/CategoryDetails?Category=@category.Category">@blog.Category</a>
+                            }
+                        }                
+
+                </ul>
+            </div>
+        </nav>
+    </div><!-- end container -->
+</header><!-- end header -->
 <section class="section wb">
     <div class="container">
         <div class="row">
@@ -25,7 +49,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-12 hidden-xs-down hidden-sm-down">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="/Index">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Blog</a></li>
+                                <li class="breadcrumb-item"><a href="#">Category</a></li>
                                 @if (Model.Blog.Any())
                                 {
                                     <li class="breadcrumb-item active">@Model.Blog.First().Category</li>
@@ -46,7 +70,7 @@
                                 <div class="col-md-4">
                                     <div class="post-media">
                                         <a href="#" title="">
-                                            <img src="~/image/@blog.ImageFileName" alt="" class="img-fluid">
+                                            <img src="~/image/@blog.ImageFileName" alt="" class="img-fluid" style="width: 100%; height: 135px;">
                                             <div class="hovereffect"></div>
                                         </a>
                                     </div><!-- end media -->
@@ -55,7 +79,7 @@
                                 <div class="blog-meta big-meta col-md-8">
                                     <span class="bg-aqua"><a href="#" title="">@blog.Category</a></span>
                                     <h4><a href="/BlogDetails?id=@blog.Id" title="">@blog.Name</a></h4>
-                                    <p>@blog.Description.Substring(0, Math.Min(@blog.Description.Length, 50))...</p>
+                                    <p>@Html.Raw(@blog.Description.Substring(0, Math.Min(@blog.Description.Length, 70)))...</p>
 
                                     <small><a href="/BlogDetails?id=@blog.Id" title="">@blog.CreatedAt.ToString("dd MMM, yyyy")</a></small>
                                     <small><a href="/BlogDetails?id=@blog.Id" title="">by @blog.Author</a></small>
@@ -89,18 +113,32 @@
 
             </div><!-- end col -->
 
-            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                <div class="sidebar">
-                    <div class="widget">
-                        <h2 class="widget-title">Search</h2>
-                        <form class="form-inline search-form">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search on the site">
-                            </div>
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-                        </form>
-                    </div><!-- end widget -->
 
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                <div class="sidebar">  
+
+                    @{
+                        string advertisingPath = "wwwroot/advertising/";
+
+                        string[] imageFiles = Directory.GetFiles(advertisingPath, "*.jpg");
+
+                        if (imageFiles.Length > 0)
+                        {
+                            Random random = new Random();
+                            string randomImagePath = imageFiles[random.Next(imageFiles.Length)];
+
+                            string absoluteImagePath = $"{Request.Scheme}://{Request.Host}/{randomImagePath.Substring("wwwroot".Length)}";
+
+                            <div class="widget">
+                                <h2 class="widget-title">Advertising</h2>
+                                <div class="banner-spot clearfix">
+                                    <div class="banner-img">
+                                        <img src="@absoluteImagePath" alt="" class="img-fluid" style="width: 100%; height: 150px;">
+                                    </div><!-- end banner-img -->
+                                </div><!-- end banner -->
+                            </div>
+                        }
+                    }
                     <div class="widget">
                         <h2 class="widget-title">Older Posts</h2>
                         <div class="blog-list-widget">
@@ -124,16 +162,21 @@
                         <h2 class="widget-title">Popular Categories</h2>
                         <div class="link-widget">
                             <ul>
-                                @if (gamesCategory != null)
+                                @foreach (var category in Model.CategoryNumber
+                                .GroupBy(b => b.Category)
+                                .OrderByDescending(group => group.Count())
+                                .Select(group => group.Key))
                                 {
-                                    <li><a href="/CategoryDetails?Category=@gamesCategory.Category">Games <span>(@gamesCount)</span></a></li>
-                                }
-                                @if (webCategory != null)
-                                {
-                                    <li><a href="/CategoryDetails?Category=@webCategory.Category">Website <span>(@websiteCount)</span></a></li>
+                                    var categoryCount = Model.CategoryNumber.Count(b => b.Category == category);
+
+                                    if (categoryCount > 0)
+                                    {
+                                        <li><a href="/CategoryDetails?Category=@category">@category <span>(@categoryCount)</span></a></li>
+                                    }
                                 }
                             </ul>
-                        </div><!-- end link-widget -->
+                        </div>
+                        <!-- end link-widget -->
                     </div><!-- end widget -->
                 </div><!-- end sidebar -->
             </div><!-- end col -->

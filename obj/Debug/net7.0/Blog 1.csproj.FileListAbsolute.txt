@@ -75,3 +75,4 @@ F:\ASPNET\Blog 1\obj\Debug\net7.0\Blog 1.csproj.AssemblyReference.cache
 F:\ASPNET\Blog 1\obj\Debug\net7.0\Blog 1.csproj.Up2Date
 F:\ASPNET\Blog 1\bin\Debug\net7.0\package-lock.json
 F:\ASPNET\Blog 1\bin\Debug\net7.0\package.json
+F:\ASPNET\Blog 1\obj\Debug\net7.0\Blog 1.sourcelink.json

@@ -1,7 +1,8 @@
-using Blog_1.Models;
+﻿using Blog_1.Models;
 using Blog_1.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Linq;
+
 namespace Blog_1.Pages
 {
     public class BlogDetailsModel : PageModel
@@ -10,6 +11,7 @@ namespace Blog_1.Pages
 
         public BLog Blog { get; set; } = new BLog();
         public BLog Category { get; set; } = new BLog();
+        public List<BLog> RelatedBlogs { get; set; } = new List<BLog>();
         public BlogDetailsModel(ApplicationDbContext context)
         {
             _context = context;
@@ -29,7 +31,12 @@ namespace Blog_1.Pages
             }
             Blog = blog;
 
-        
+            RelatedBlogs = _context.Blog
+                    .Where(b => b.Category == blog.Category && b.Id != blog.Id)
+                    .OrderBy(x => Guid.NewGuid())
+                    .Take(5)
+                    .ToList();
         }
+
     }
 }
