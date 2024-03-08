@@ -11,7 +11,7 @@ namespace Blog_1.Pages
 
         public async Task OnGetAsync()
         {
-            int pageSize = 5;
+           
             var query = context.Blog.AsQueryable();
 
             if (!string.IsNullOrEmpty(SearchTerm))
@@ -19,7 +19,7 @@ namespace Blog_1.Pages
                 query = query.Where(b => b.Name.Contains(SearchTerm));
             }
 
-            await LoadCommonDataAsync(query, pageSize);
+            await LoadCommonDataAsync(query);
 
             RandomBlog = await context.Blog
                 .OrderBy(x => Guid.NewGuid())

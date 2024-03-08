@@ -50,34 +50,62 @@
     <!-- Version Garden CSS for this template -->
     <link href="~/css/version/garden.css" rel="stylesheet">
 
+
+    <!-- Scroll on Top -->
+    <style>
+        #scrollToTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            background-color: #8dc63f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+    </style>
+
+
     <!-- TinyMCE CDN -->
     <script src="https://cdn.tiny.cloud/1/wc197p2xvrvrz5y3gp9em7oqrcl6jz3tbost2zn10zeied13/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     <script>
         tinymce.init({
             selector: '#editor',
-            height: 300,
+            height: 500,
             plugins: 'advlist autolink lists link image charmap print preview anchor',
             toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
         });
+        
+        document.addEventListener("DOMContentLoaded", function () {
+            var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+
+            window.addEventListener("scroll", function () {
+
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    scrollToTopBtn.style.display = "block";
+                } else {
+                    scrollToTopBtn.style.display = "none";
+                }
+            });
+
+
+            scrollToTopBtn.addEventListener("click", function () {
+
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            });
+        });
+
     </script>
+
+
 
 </head>
 <body>
-        <div class="collapse top-search" id="collapseExample">
-            <div class="card card-block">
-                <div class="newsletter-widget text-center">
-                    <form class="form-inline">
-                        <input type="text" class="form-control" placeholder="What you are looking for?">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-                    </form>                  
-                </div><!-- end newsletter -->
-            </div>
-        </div><!-- end top-search -->
-        <!-- New Admin Section -->
-      
-    
-
         <div class="topbar-section">
             <div class="container-fluid">
                 <div class="row">
@@ -96,7 +124,7 @@
 
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <div class="topsearch text-right">
-                        <a href="/Admin/Blog"><i class="fa fa-user"></i> <span class="menu-item">Admin</span></a>
+                        <a href="/Admin/Blog/Index"><i class="fa fa-user"></i> <span class="menu-item">Admin</span></a>
                         <a href="/Index"><i class="fa fa-home"></i> Home</a>
                     </div><!-- end search -->
                 </div><!-- end col -->
@@ -111,6 +139,11 @@
             @RenderBody()
         </main>
     </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" title="Go to top">
+        <i class="fa fa-chevron-up"></i>
+    </button>
 
         <footer class="footer">
             <div class="container">

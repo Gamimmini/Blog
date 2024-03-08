@@ -5,7 +5,7 @@ namespace Blog_1.Models
     public class BlogDto
     {
         [Required, MaxLength(150)]
-        public string Name { get; set; } = "";
+        public required string Name { get; set; }
         public string? Description { get; set; }
         public string? Category { get; set; } 
         public IFormFile? ImageFile { get; set; }

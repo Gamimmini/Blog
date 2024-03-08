@@ -31,21 +31,24 @@
                 </ul>
             </div>
         </nav>
-    </div><!-- end container -->
-</header><!-- end header -->
+    </div>
+</header>
 <section class="section wb">
     <div class="container">
         <div class="row">
 
             <div class="page-title wb">
                 <div class="container">
-                    <div class="row">
+                    <div class="row">                     
+
                         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                             @if (Model.Blog.Any())
                             {
                                 <h2><i class="fa fa-leaf bg-green"></i> Category: @Model.Blog.First().Category </h2>
                             }
-                        </div><!-- end col -->
+                        </div>
+                        
+                        <!-- end col -->
                         <div class="col-lg-4 col-md-4 col-sm-12 hidden-xs-down hidden-sm-down">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="/Index">Home</a></li>
@@ -69,7 +72,7 @@
                             <div class="blog-box row">
                                 <div class="col-md-4">
                                     <div class="post-media">
-                                        <a href="#" title="">
+                                        <a href="/BlogDetails?id=@blog.Id" title="">
                                             <img src="~/image/@blog.ImageFileName" alt="" class="img-fluid" style="width: 100%; height: 135px;">
                                             <div class="hovereffect"></div>
                                         </a>
@@ -94,17 +97,50 @@
                     </div><!-- end blog-list -->
                 </div><!-- end page-wrapper -->
                 <!-- Your existing code -->
+               
 
                 <div class="row">
                     <div class="col-md-12">
                         <nav aria-label="Page navigation">
                             <ul class="pagination justify-content-start">
+
+                                <li class="page-item">
+                                    <a class="page-link" href="?PageNumber=1&Category=@Model.TotalCategory" aria-label="First">
+                                        <span aria-hidden="true">First</span>
+                                    </a>
+                                </li>
+
+                                @if (Model.PageNumber > 1)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="?PageNumber=@(Model.PageNumber - 1)&Category=@Model.TotalCategory" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo; Previous</span>
+                                        </a>
+                                    </li>
+                                }
+
                                 @for (int i = 1; i <= Model.TotalPages; i++)
                                 {
                                     <li class="page-item @(i == Model.PageNumber ? "active" : "")">
-                                        <a class="page-link" href="?PageNumber=@i&Category=@Model.SearchTerm">@i</a>
+                                        <a class="page-link" href="?PageNumber=@i&Category=@Model.TotalCategory">@i</a>
                                     </li>
                                 }
+
+                                @if (Model.PageNumber < Model.TotalPages)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="?PageNumber=@(Model.PageNumber + 1)&Category=@Model.TotalCategory" aria-label="Next">
+                                            <span aria-hidden="true">Next &raquo;</span>
+                                        </a>
+                                    </li>
+                                }
+
+                                <li class="page-item">
+                                    <a class="page-link" href="?PageNumber=@Model.TotalPages&Category=@Model.TotalCategory" aria-label="Final">
+                                        <span aria-hidden="true">Final</span>
+                                    </a>
+                                </li>
+
                             </ul>
                         </nav>
                     </div><!-- end col -->
@@ -135,8 +171,8 @@
                                 <div class="banner-spot clearfix">
                                     <div class="banner-img">
                                         <img src="@absoluteImagePath" alt="" class="img-fluid" style="width: 100%; height: 150px;">
-                                    </div><!-- end banner-img -->
-                                </div><!-- end banner -->
+                                    </div>
+                                </div>
                             </div>
                         }
                     }

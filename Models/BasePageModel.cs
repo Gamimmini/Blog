@@ -1,11 +1,10 @@
-﻿using Blog_1.Models;
-using Blog_1.Services;
+﻿using Blog_1.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace Blog_1.Pages
+namespace Blog_1.Models
 {
     public class BasePageModel : PageModel
     {
@@ -25,13 +24,14 @@ namespace Blog_1.Pages
         [BindProperty(SupportsGet = true)]
         public string SearchTerm { get; set; }
 
+        readonly int pageSize = 5;
         public BasePageModel(ApplicationDbContext context)
         {
             this.context = context;
             SearchTerm = "";
         }
 
-        public async Task LoadCommonDataAsync(IQueryable<BLog> query, int pageSize)
+        public async Task LoadCommonDataAsync(IQueryable<BLog> query)
         {
             var totalItems = await query.CountAsync();
 
@@ -50,5 +50,6 @@ namespace Blog_1.Pages
 
             CategoryNumber = await context.Blog.ToListAsync();
         }
+
     }
 }

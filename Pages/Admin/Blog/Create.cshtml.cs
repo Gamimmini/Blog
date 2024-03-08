@@ -67,8 +67,6 @@ namespace Blog_1.Pages.Admin.Blog
             successMessage = "New Blog Created Succesfully";
 
             Response.Redirect("/Admin/Blog");
-
-
         }
     }
 }

@@ -53,15 +53,49 @@
             }
         </table>
     </div>
+
+
 <div class="pagination">
     <nav aria-label="Page navigation example">
         <ul class="pagination">
+
+            <li class="page-item">
+                <a class="page-link" href="Index?PageNumber=1" aria-label="First">
+                    <span aria-hidden="true">First</span>
+                </a>
+            </li>
+
+            @if (Model.PageNumber > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="?PageNumber=@(Model.PageNumber - 1)" aria-label="Previous">
+                        <span aria-hidden="true">&laquo; Previous</span>
+                    </a>
+                </li>
+            }
+
             @for (int i = 1; i <= Model.TotalPages; i++)
             {
                 <li class="page-item @(i == Model.PageNumber ? "active" : "")">
                     <a class="page-link" href="/Admin/Blog/Index?pageNumber=@i">@i</a>
                 </li>
             }
+
+            @if (Model.PageNumber < Model.TotalPages)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="?PageNumber=@(Model.PageNumber + 1)" aria-label="Next">
+                        <span aria-hidden="true">Next &raquo;</span>
+                    </a>
+                </li>
+            }
+
+            <li class="page-item">
+                <a class="page-link" href="?PageNumber=@Model.TotalPages" aria-label="Final">
+                    <span aria-hidden="true">Final</span>
+                </a>
+            </li>
+
         </ul>
     </nav>
 </div>

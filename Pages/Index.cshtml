@@ -30,8 +30,8 @@
                 </ul>
             </div>
         </nav>
-    </div><!-- end container -->
-</header><!-- end header -->
+    </div>
+</header>
 
 <section class="section first-section">
     <div class="container-fluid">
@@ -49,10 +49,10 @@
                                     <h4><a href="/BlogDetails?id=@blog.Id" title="">@blog.Name</a></h4>
                                     <small><a href="/BlogDetails?id=@blog.Id" title="">@blog.CreatedAt.ToString("dd MMM, yyyy")</a></small>
                                     <small><a href="/BlogDetails?id=@blog.Id" title="">by @blog.Author</a></small>
-                                </div><!-- end meta -->
-                            </div><!-- end shadow-desc -->
-                        </div><!-- end shadow -->
-                    </div><!-- end post-media -->
+                                </div>
+                            </div>
+                        </div>>
+                    </div>
                 </div>
                 <!-- end left-side -->
             }
@@ -89,24 +89,22 @@
 
                                     <small><a href="/BlogDetails?id=@blog.Id" title="">@blog.CreatedAt.ToString("dd MMM, yyyy")</a></small>
                                     <small><a href="/BlogDetails?id=@blog.Id" title="">by @blog.Author</a></small>
-                                </div><!-- end meta -->
+                                </div>
                             </div>
-
-                            <!-- end blog-box -->
 
                             <hr class="invis">
                         }
 
-                    </div><!-- end blog-list -->
-                </div><!-- end page-wrapper -->
-                <!-- Your existing code -->
+                    </div>
+                </div>
+
 
                 <div class="row">
                     <div class="col-md-12">
                         <nav aria-label="Page navigation">
                             <ul class="pagination justify-content-start">
                                 <li class="page-item">
-                                    <a class="page-link" href="?PageNumber=1" aria-label="First">
+                                    <a class="page-link" href="Index?PageNumber=1" aria-label="First">
                                         <span aria-hidden="true">First</span>
                                     </a>
                                 </li>
@@ -139,6 +137,7 @@
                                         <span aria-hidden="true">Final</span>
                                     </a>
                                 </li>
+
                             </ul>
                         </nav>
                     </div><!-- end col -->
@@ -151,12 +150,14 @@
                 <div class="sidebar">
                     <div class="widget">
                         <h2 class="widget-title">Search</h2>
+
                         <form class="form-inline search-form">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="searchTerm" placeholder="Search by name" value="@Model.SearchTerm">
                             </div>
                             <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                         </form>
+
                     </div>
 
                  
